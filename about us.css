@@ -1,0 +1,199 @@
+/* === About Us === */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: #1e4387;
+}
+
+/* === Navigation Bar === */
+.navbar {
+    background: #4c6444;                
+    display: flex;
+    justify-content: space-between; /* Space logo and links */
+    align-items: center; 
+    padding: 10px 20px;
+    border-bottom: 1px solid #1e4387; /* Blue line below */
+    font-family: Arial, sans-serif;
+}
+
+.navbar .logo {
+    font-size: 2.4em; /* Big logo text */
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.navbar ul {
+    list-style: none; /* Remove bullets */
+    display: flex;
+    gap: 20px; /* Space between items */
+    margin-left: 90px;
+    padding: 0;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 0.9em;
+    transition: all 0.3s ease; /* Smooth hover */
+}
+
+.navbar ul li a:hover {
+    transform: translateY(-2px); /* Moves up a bit (animation) */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Header */
+.header {
+    background: #1e4387;
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 15px;
+    font-size: 2.0em;
+    font-weight: bold;
+}
+
+/* Content Section */
+.content-section {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* === Card box === */
+.card {
+    background: #ffffff;
+    width: 1000px;
+    height: 450px;
+    padding: 60px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    animation: fadeIn 0.8s ease-out, slideIn 0.8s ease-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* === Headings and text === */
+h1 {
+    color:  #1e4387;
+    font-size: 1.6em;
+    margin-bottom: 8px;
+}
+
+h2 {
+    color: #8f6b59;
+    font-size: 1.3em;
+    margin-bottom: 12px;
+}
+
+p {
+    color:  #4c6444;
+    line-height: 1.5;
+    font-size: 0.95em;
+    text-align: justify;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.buttons a {
+    background:  #1e4387;
+    color: #fff;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+    animation: scaleIn 0.5s ease-out;
+}
+
+.buttons a:hover {
+    background: #2857b0;
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(30, 67, 135, 0.4);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* === Nav button animations === */
+.nav-links a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.18s ease;
+}
+
+.nav-links a:hover {
+    background: #8f6b59;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* Dropdown submenu */
+.dropdown-content { 
+    display: none;
+    position: absolute;
+    background: #4c6444;
+    min-width: 160px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 10;
+}
+
+/* Show the submenu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Adding keyframe animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+} 
+
+@keyframes slideIn {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.95); }
+    to { transform: scale(1); }
+}
+

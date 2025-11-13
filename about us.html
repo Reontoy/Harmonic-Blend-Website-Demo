@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Harmonic Blend</title>
+  <link rel="stylesheet" href="about us.css">
+</head>
+<body>
+
+<audio id="BuyButton_Sound" src="audio/click.mp3" preload="auto"></audio>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">  
+    <div class="logo"><img src="pictures/harmoniclogo.png" height="70"></div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <!-- Dropdown Menu -->
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Menu ▾</a>
+        <div class="dropdown-content">
+          <a href="main_dishes.html">Main Dishes</a>
+          <a href="drinks.html">Drinks</a>
+          <a href="dessert.html">Desserts</a>
+        </div>
+      </li> 
+      <li><a href="about us.html">About Us</a></li>
+      <li><a href="contact us.html">Contact</a></li>
+</ul>
+  </nav>
+  <!-- Header Section -->
+  <div class="header">
+    ABOUT US
+  </div>
+  <!-- Main Content Section -->
+  <div class="content-section">
+    <div class="card">
+      <h1>Harmonic Blend</h1>
+      <h2>Our History</h2>
+      <p>
+        Harmonic Blend is a restaurant owned by Hexadents Corporation. It was located on Bonifacio Global City, Taguig City and Tomas Morato Ave, Quezon City, serving a wide variety of authentic cuisine, such as Asian, American, and European Cuisine.<br><br>
+        The Name “Harmonic Blends” came from the idea of 6 Entrepreneurial People who wanted to start a restaurant with a wide variety of Cuisine styles that are harmonious to each and every taste palettes.<br><br>
+        Harmonic Blends generates a net worth of 6.9 Million Pesos and the restaurant is popular among BGC Goers and Foreigners.  It also became a popular name in the area and is a must-visit restaurant according to many tourist and influencers online.<br><br>
+        Mr. Raymond Cuevas's influence and vision of “Savor on every bite”, which simply means that the company promises that for every bite of their food, you can savor the harmony of the ingredients and food. In this way, the foods and drinks served on the restaurant will be liked by everyone regardless of their preferences because there is always a meal for everyone here on Harmonic Blends. They are also able to partner up with some of the big businesses, such as Pepsi Philippines and Coca-Cola Philippines.<br><br>
+        </p>
+        <div class="buttons">
+        <a href="contact us.html">Contact Us</a>
+      </div>
+    </div>
+  </div>
+	
+	<script>
+	document.addEventListener('DOMContentLoaded', function() {
+        	const buttonAudio = document.getElementById('BuyButton_Sound'); 
+        	const links = document.querySelectorAll('.nav-links a, .dropdown-content a, .buttons a');
+
+        	links.forEach(link => {
+            		link.addEventListener('click', function(event) {
+                		event.preventDefault();
+
+                	buttonAudio.currentTime = 0;
+                	buttonAudio.play();
+
+                	URL = this.href;
+
+                	setTimeout(() => {
+                    	window.location.href = URL;
+                	}, 300);
+            		});
+        	});
+    	});
+	</script>
+</body>
+</html>

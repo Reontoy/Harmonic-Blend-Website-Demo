@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harmonic Blend Desserts</title>
+  <link rel="stylesheet" href="dessert.css">
+
+  <style>
+    .price {
+      display: block;
+      font-weight: bold;
+      color: #4a4a4a;
+      margin-top: 5px;
+    }
+
+    .buy-btn {
+      background-color: #8A6240;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+
+    /* === Order Form === */
+    .order_form {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .order_form-content {
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      width: 320px;
+      text-align: left;
+      position: relative;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .order_form-content h3 {
+      text-align: center;
+      color: #8A6240;
+      margin-bottom: 15px;
+    }
+
+    .order_form-content label {
+      font-weight: bold;
+    }
+
+    .order_form-content input[type="text"],
+    .order_form-content select {
+      width: 95%;
+      padding: 8px;
+      margin: 6px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .order_form-content button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      background-color: #8A6240;
+      color: white;
+      cursor: pointer;
+    }
+
+    .close-x {
+      position: absolute;
+      top: 6px;
+      right: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #8A6240;
+      cursor: pointer;
+      user-select: none;
+    }
+
+  </style>
+</head>
+<body>
+
+	<audio id="BuyButton_Sound" src="audio/click.mp3" preload="auto"></audio>
+	<audio id="SubmitOrder_Sound" src="audio/buysound.mp3" preload="auto"></audio>
+
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">  
+    <div class="logo"><img src="pictures/harmoniclogo.png" height="70"></div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Menu ▾</a>
+        <div class="dropdown-content">
+          <a href="main_dishes.html">Main Dishes</a>
+          <a href="drinks.html">Drinks</a>
+          <a href="dessert.html">Desserts</a>
+        </div>
+      </li> 
+      <li><a href="about us.html">About Us</a></li>
+      <li><a href="contact us.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Title -->
+  <div class="page-title">
+    <svg width="100%" height="100" viewBox="0 0 800 100">
+      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
+            font-family="Arial, Helvetica, sans-serif" font-size="48"
+            fill="white" stroke="#6e5e4e" stroke-width="3" paint-order="stroke fill">
+        Harmonic Blend Desserts
+      </text>
+    </svg>
+  </div>
+
+  <!-- Desserts Menu Section -->
+  <div class="menu-section">
+
+    <!-- Asian Desserts -->
+    <table class="menu-table">
+      <tr><th>Asian Desserts</th></tr>
+      <tr><td>Halo-Halo <img src="pictures/philippines.png" border="1" height="15"><br>
+        <img src="pictures/halo_halo.png" border="1" height="200"><br>
+        <span class="price">₱120</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+      <tr><td>Mochi <img src="pictures/japan.png" border="1" height="15"><br>
+        <img src="pictures/mochi.png" border="1" height="200"><br>
+        <span class="price">₱90</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+      <tr><td>Gulab Jamun <img src="pictures/india.png" border="1" height="15"><br>
+        <img src="pictures/gulab_jamun.png" border="1" height="200"><br>
+        <span class="price">₱110</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+      <tr><td>Mango Sticky Rice <img src="pictures/thailand.png" border="1" height="15"><br>
+        <img src="pictures/mango_sticky_rice.png" border="1" height="200"><br>
+        <span class="price">₱130</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+      <tr><td>Tangyuan <img src="pictures/china.png" border="1" height="15"><br>
+        <img src="pictures/tangyuan.png" border="1" height="200"><br>
+        <span class="price">₱100</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+    </table>
+
+    <!-- American Desserts -->
+    <table class="menu-table">
+      <tr><th>American Desserts</th></tr>
+      <tr><td>Chocolate Brownies <img src="pictures/america.jpg" border="1" height="15"><br>
+        <img src="pictures/brownies.png" border="1" height="200"><br>
+        <span class="price">₱85</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+      <tr><td>Rocky Road Ice Cream <img src="pictures/america.jpg" border="1" height="15"><br>
+        <img src="pictures/rocky_road.png" border="1" height="200"><br>
+        <span class="price">₱95</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+      <tr><td>Boston Cream Pie <img src="pictures/america.jpg" border="1" height="15"><br>
+        <img src="pictures/boston_cream_pie.png" border="1" height="200"><br>
+        <span class="price">₱150</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+      <tr><td>Banana Split <img src="pictures/america.jpg" border="1" height="15"><br>
+        <img src="pictures/banana_split.png" border="1" height="200"><br>
+        <span class="price">₱120</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+      <tr><td>Banana Pudding <img src="pictures/america.jpg" border="1" height="15"><br>
+        <img src="pictures/banana_pudding.png" border="1" height="200"><br>
+        <span class="price">₱100</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+    </table>
+
+    <!-- European Desserts -->
+    <table class="menu-table">
+      <tr><th>European Desserts</th></tr>
+      <tr><td>Crème Brûlée <img src="pictures/france.png" border="1" height="15"><br>
+        <img src="pictures/creme_brulee.png" border="1" height="200"><br>
+        <span class="price">₱180</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+      <tr><td>Baklava <img src="pictures/greece.png" border="1" height="15"><br>
+        <img src="pictures/baklava.png" border="1" height="200"><br>
+        <span class="price">₱140</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+      <tr><td>Princess Cake <img src="pictures/sweden.png" border="1" height="15"><br>
+        <img src="pictures/princess_cake.png" border="1" height="200"><br>
+        <span class="price">₱160</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+      <tr><td>Sticky Toffee Pudding <img src="pictures/england.png" border="1" height="15"><br>
+        <img src="pictures/sticky_toffee_pudding.png" border="1" height="200"><br>
+        <span class="price">₱170</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+      <tr><td>Macarons <img src="pictures/france.png" border="1" height="15"><br>
+        <img src="pictures/macarons.png" border="1" height="200"><br>
+        <span class="price">₱150</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+    </table>
+  </div>
+
+  <!-- === Order Form === -->
+  <div id="orderForm" class="order_form">
+    <div class="order_form-content">
+      <span class="close-x" onclick="closeOrderForm()">×</span>
+      <center><img src="pictures/harmoniclogodark.png" height="150"></center>
+      <h3>Order Form</h3>
+      <form onsubmit="submitOrder(event)">
+        <label>Customer Name:</label><br>
+        <input type="text" id="customerName" required><br>
+
+        <label>Address:</label><br>
+        <input type="text" id="address" required><br>
+
+	<label>Contact Number:</label><br>
+        <input type="text" id="contactno" required><br>
+
+        <label>Payment Method:</label><br>
+        <select id="payment" required>
+          <option value="">-- Select Payment Method --</option>
+          <option value="Cash">Cash</option>
+          <option value="Credit/Debit Card">Credit/Debit Card</option>
+          <option value="GCash">GCash</option>
+          <option value="Maya">Maya</option>
+        </select><br>
+
+	<label>Quantity:</label><br>
+	<input type="number" id="quantity" name="quantity" min="1" max="100" step="1" value="1"><br><br>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function openOrderForm() {
+      document.getElementById("orderForm").style.display = "flex";
+    }
+
+    function closeOrderForm() {
+      document.getElementById("orderForm").style.display = "none";
+    }
+
+            function submitOrder(event) {
+    		event.preventDefault();
+    		submitAudio = document.getElementById('SubmitOrder_Sound');
+    		submitAudio.currentTime = 0;
+    		submitAudio.play();
+
+                event.preventDefault();
+                alert("Ordered successfully!");
+                closeOrderForm();
+            }
+
+	    document.addEventListener('DOMContentLoaded', function() {
+        	buttonAudio = document.getElementById('BuyButton_Sound'); 
+        	buttons = document.querySelectorAll('.buy-btn');
+        	links = document.querySelectorAll('.nav-links a, .dropdown-content a');
+
+        	buttons.forEach(button => {
+            	button.addEventListener('click', function() {
+			buttonAudio.currentTime = 0; 
+                	buttonAudio.play();
+            		});
+		});
+
+        	links.forEach(link => {
+            		link.addEventListener('click', function(event) {
+                		event.preventDefault();
+
+                	buttonAudio.currentTime = 0;
+                	buttonAudio.play();
+
+                	URL = this.href;
+
+                	setTimeout(() => {
+                    	window.location.href = URL;
+                	}, 300);
+            		});
+        	});
+    	});
+  </script>
+
+</body>
+</html>

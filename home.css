@@ -1,0 +1,200 @@
+/* === Home Page === */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #1e4387;
+  color: #ffffff;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* === Background video styles === */
+.bg-video {
+  position: fixed;  /* Keeps the video in place even when scrolling */
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%); /* Centers the video */
+  object-fit: cover; /* Makes video fill the screen */
+  z-index: -2;  /* Sends video behind everything */
+  pointer-events: none; /* So the video won’t block clicks */
+}
+
+/* Semi-transparent overlay to keep text readable */
+.video-overlay {
+  position: fixed;
+  inset: 0; /* Covers the whole screen */
+  background: rgba(0,0,0,0.35); /* Semi-transparent black */
+  z-index: -1; /* Behind text but above video */
+  pointer-events: none; 
+}
+
+/* === Navbar === */
+.navbar {
+  background: rgba(76,100,68,1); 
+  display: flex;
+  justify-content: space-between; /* Spaces logo and links */
+  align-items: center;
+  padding: 12px 25px;
+  position: relative;
+  z-index: 2; /* Makes sure navbar shows above video */
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 0.9em;
+    transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+/* Website logo text */
+.logo {
+  font-size: 2.4em;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Navigation links layout */
+.nav-links {
+  list-style: none; /* Removes bullets */
+  display: flex;
+  gap: 20px; /* Spacing between links */
+  margin: 0;
+}
+
+/* Link style */
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 15px;
+  font-weight: 600;
+}
+
+/* Hover effect for links */
+.nav-links a:hover {
+  background: #8f6b59;
+  border-radius: 4px;
+}
+
+/* === Dropdown Menu === */
+.dropdown-content {
+  display: none; /* Hidden by default */
+  position: absolute;
+  background: #4c6444;
+  min-width: 160px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Small shadow */
+}
+
+/* Shows dropdown when hovered */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Links inside dropdown */
+.dropdown-content a {
+  display: block;
+  padding: 10px 20px;
+  color: #ffffff;
+}
+
+/* Hover color inside dropdown */
+.dropdown-content a:hover {
+  background: #8f6b59;
+}
+
+/* === Introduction Section === */
+.intro {
+  background: transparent;
+  min-height: 85vh; /* Screen height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Title text animation */
+.intro-text h1 {
+  font-size: 3em;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+  animation: slideUp 1s ease; /* Moves upward animation */
+}
+
+/* Subtitle text animation */
+.intro-text p {
+  font-size: 1.2em;
+  margin-bottom: 25px;
+  animation: fadeIn 1s ease 0.5s both; /* Fades in after delay */
+}
+
+
+/* Button design */
+.btn {
+  background: #8f6b59;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  display: inline-block;
+  animation: fadeIn 1.2s ease-out 0.6s backwards; /* Fade with delay */
+  transition: all 0.3s ease;
+}
+
+/* Button hover animation */
+.btn:hover {
+  transform: translateY(-2px) scale(1.05); /* Slight lift effect */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  background: #a27b68;
+}
+
+/* === About Section === */
+.about {
+  background: #ffffff;
+  color: #4c6444;
+  text-align: center;
+  padding: 60px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* About section title color */
+.about h2 {
+  color: #1e4387;
+}
+
+/* Secondary button design */
+.btn-secondary {
+  background: #1e4387;
+  color: #fff;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+/* Adding keyframe animations */
+/* Fade In */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Slide up and fade in */
+@keyframes slideUp {
+  from {  
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+

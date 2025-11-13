@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harmonic Blend Main Dishes</title>
+  <link rel="stylesheet" href="main_dishes.css">
+
+  <style>
+    .price {
+      display: block;
+      font-weight: bold;
+      color: #4a4a4a;
+      margin-top: 5px;
+    }
+
+    .buy-btn {
+      background-color: #8A6240;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+
+    /* === Order Form === */
+    .order_form {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .order_form-content {
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      width: 320px;
+      text-align: left;
+      position: relative;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .order_form-content h3 {
+      text-align: center;
+      color: #8A6240;
+      margin-bottom: 15px;
+    }
+
+    .order_form-content label {
+      font-weight: bold;
+    }
+
+    .order_form-content input[type="text"],
+    .order_form-content select {
+      width: 95%;
+      padding: 8px;
+      margin: 6px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .order_form-content button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      background-color: #8A6240;
+      color: white;
+      cursor: pointer;
+    }
+
+    .close-x {
+      position: absolute;
+      top: 6px;
+      right: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #8A6240;
+      cursor: pointer;
+      user-select: none;
+    }
+
+  </style>
+</head>
+<body>
+
+	<audio id="BuyButton_Sound" src="audio/click.mp3" preload="auto"></audio>
+	<audio id="SubmitOrder_Sound" src="audio/buysound.mp3" preload="auto"></audio>
+
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">  
+    <div class="logo"><img src="pictures/harmoniclogo.png" height="70"></div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Menu ▾</a>
+        <div class="dropdown-content">
+          <a href="main_dishes.html">Main Dishes</a>
+          <a href="drinks.html">Drinks</a>
+          <a href="dessert.html">Desserts</a>
+        </div>
+      </li> 
+      <li><a href="about us.html">About Us</a></li>
+      <li><a href="contact us.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Title -->
+  <div class="page-title">
+    <svg width="100%" height="100" viewBox="0 0 800 100">
+      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
+            font-family="Arial, Helvetica, sans-serif" font-size="48"
+            fill="white" stroke="#6e5e4e" stroke-width="3" paint-order="stroke fill">
+        Harmonic Blend Main Dishes
+      </text>
+    </svg>
+  </div>
+
+  <!-- Menu Section -->
+  <div class="menu-section">
+
+    <!-- Asian Dishes -->
+    <table class="menu-table">
+      <tr><th>Asian Dishes</th></tr>
+      <tr><td>Adobo <img src="pictures/philippines.png" border="1" height="15"><br>
+        <img src="pictures/adobo.png" border="1" height="200"><br>
+        <span class="price">₱190</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+      <tr><td>Ramen <img src="pictures/japan.png" border="1" height="15"><br>
+        <img src="pictures/ramen.png" border="1" height="200"><br>
+        <span class="price">₱250</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+      <tr><td>Pad Thai <img src="pictures/thailand.png" border="1" height="15"><br>
+        <img src="pictures/pad_thai.png" border="1" height="200"><br>
+        <span class="price">₱230</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+      <tr><td>Biryani <img src="pictures/india.png" border="1" height="15"><br>
+        <img src="pictures/biryani.png" border="1" height="200"><br>
+        <span class="price">₱210</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+      <tr><td>Hainanese Chicken Rice <img src="pictures/singapore.png" border="1" height="15"><br>
+        <img src="pictures/hainanese_chicken_rice.png" border="1" height="200"><br>
+        <span class="price">₱200</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+    </table>
+
+    <!-- American Dishes -->
+    <table class="menu-table">
+      <tr><th>American Dishes</th></tr>
+      <tr><td>Cheeseburger <img src="pictures/america.jpg" border="1" height="15"><br>
+        <img src="pictures/cheese_burger.png" border="1" height="200"><br>
+        <span class="price">₱220</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+      <tr><td>Buffalo Wings <img src="pictures/america.jpg" border="1" height="15"><br>
+        <img src="pictures/buffalo_wings.png" border="1" height="200"><br>
+        <span class="price">₱240</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+      <tr><td>Clam Chowder <img src="pictures/america.jpg" border="1" height="15"><br>
+        <img src="pictures/clam_chowder.png" border="1" height="200"><br>
+        <span class="price">₱210</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+      <tr><td>Jambalaya <img src="pictures/america.jpg" border="1" height="15"><br>
+        <img src="pictures/jambalaya.png" border="1" height="200"><br>
+        <span class="price">₱260</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+      <tr><td>Philly Cheesesteak <img src="pictures/america.jpg" border="1" height="15"><br>
+        <img src="pictures/philly_cheesesteak.png" border="1" height="200"><br>
+        <span class="price">₱270</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+    </table>
+
+    <!-- European Dishes -->
+    <table class="menu-table">
+      <tr><th>European Dishes</th></tr>
+      <tr><td>Pizza Margherita <img src="pictures/italy.png" border="1" height="15"><br>
+        <img src="pictures/pizza_margherita.png" border="1" height="200"><br>
+        <span class="price">₱290</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+      <tr><td>Fish and Chips <img src="pictures/uk.png" border="1" height="15"><br>
+        <img src="pictures/fish_and_chips.png" border="1" height="200"><br>
+        <span class="price">₱270</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+      <tr><td>Paella <img src="pictures/spain.png" border="1" height="15"><br>
+        <img src="pictures/paella.png" border="1" height="200"><br>
+        <span class="price">₱310</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+      <tr><td>Ratatouille <img src="pictures/france.png" border="1" height="15"><br>
+        <img src="pictures/ratatouille.png" border="1" height="200"><br>
+        <span class="price">₱260</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+      <tr><td>Goulash <img src="pictures/hungary.png" border="1" height="15"><br>
+        <img src="pictures/goulash.png" border="1" height="200"><br>
+        <span class="price">₱280</span><button class="buy-btn" onclick="openOrderForm()">Buy</button></td></tr>
+    </table>
+  </div>
+
+  <!-- Order Form -->
+  <div id="orderForm" class="order_form">
+    <div class="order_form-content">
+      <span class="close-x" onclick="closeOrderForm()">×</span>
+      <center><img src="pictures/harmoniclogodark.png" height="150"></center>
+      <h3>Order Form</h3>
+      <form onsubmit="submitOrder(event)">
+        <label>Customer Name:</label><br>
+        <input type="text" id="customerName" required><br>
+
+        <label>Address:</label><br>
+        <input type="text" id="address" required><br>
+
+	<label>Contact Number:</label><br>
+        <input type="text" id="contactno" required><br>
+
+        <label>Payment Method:</label><br>
+        <select id="payment" required>
+          <option value="">-- Select Payment Method --</option>
+          <option value="Cash">Cash</option>
+          <option value="Credit/Debit Card">Credit/Debit Card</option>
+          <option value="GCash">GCash</option>
+          <option value="Maya">Maya</option>
+        </select><br>
+
+	<label>Quantity:</label><br>
+	<input type="number" id="quantity" name="quantity" min="1" max="100" step="1" value="1"><br><br>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function openOrderForm() {
+      document.getElementById("orderForm").style.display = "flex";
+    }
+
+    function closeOrderForm() {
+      document.getElementById("orderForm").style.display = "none";
+    }
+
+            function submitOrder(event) {
+    		event.preventDefault();
+    		submitAudio = document.getElementById('SubmitOrder_Sound');
+    		submitAudio.currentTime = 0;
+    		submitAudio.play();
+
+                event.preventDefault();
+                alert("Ordered successfully!");
+                closeOrderForm();
+            }
+
+	    document.addEventListener('DOMContentLoaded', function() {
+        	buttonAudio = document.getElementById('BuyButton_Sound'); 
+        	buttons = document.querySelectorAll('.buy-btn');
+        	links = document.querySelectorAll('.nav-links a, .dropdown-content a');
+
+        	buttons.forEach(button => {
+            	button.addEventListener('click', function() {
+			buttonAudio.currentTime = 0; 
+                	buttonAudio.play();
+            		});
+		});
+
+        	links.forEach(link => {
+            		link.addEventListener('click', function(event) {
+                		event.preventDefault();
+
+                	buttonAudio.currentTime = 0;
+                	buttonAudio.play();
+
+                	URL = this.href;
+
+                	setTimeout(() => {
+                    	window.location.href = URL;
+                	}, 300);
+            		});
+        	});
+    	});
+  </script>
+
+</body>
+</html>

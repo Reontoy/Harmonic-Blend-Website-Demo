@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Harmonic Blend - Home</title>
+  <link rel="stylesheet" href="home.css" />
+  <style>
+
+    /* animation for the logo */
+    .logo img {
+      transition: transform 0.3s ease;
+    }
+    .logo img:hover {
+      transform: scale(1.1);
+    }
+
+    /* fade in for about section */ 
+    .about {
+      animation: fadeIn 1s ease;
+    }
+    
+  </style>
+</head>
+<body>
+
+<audio id="BuyButton_Sound" src="audio/click.mp3" preload="auto"></audio>
+
+  <!-- Background video of earth -->
+  <video
+    class="bg-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+  >
+    <source src="videos/earth.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Dark overlay on top of video to keep text readable -->
+  <div class="video-overlay"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">  
+    <div class="logo"><img src="pictures/harmoniclogo.png" height="70"></div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Menu ▾</a>
+        <div class="dropdown-content">
+          <a href="main_dishes.html">Main Dishes</a>
+          <a href="drinks.html">Drinks</a>
+          <a href="dessert.html">Desserts</a>
+        </div>
+      </li> 
+      <li><a href="about us.html">About Us</a></li>
+      <li><a href="contact us.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Introduction Section -->
+  <section class="intro">
+    <div class="intro-text">
+      <h1>Welcome to Harmonic Blend</h1>
+      <p>Where Asia, Europe, and America come together on one plate.</p>
+      <a href="main_dishes.html" class="btn">Explore Our Menu</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about">
+    <h2>Experience the Harmony of Three Continents</h2>
+    <p>
+      At Harmonic Blend, we celebrate cultural unity through flavor. 
+      Every dish, drink, and dessert we serve reflects the essence of 
+      Asia, Europe, and America.
+    </p>
+    <br><a href="about us.html" class="btn-secondary">About Us</a>
+<br><br><br><img src="pictures/harmoniclogodark.png" height="180">
+  </section>
+	<script>
+	document.addEventListener('DOMContentLoaded', function() {
+        	const buttonAudio = document.getElementById('BuyButton_Sound'); 
+        	const links = document.querySelectorAll('.nav-links a, .dropdown-content a, .intro a, .about a');
+
+        	links.forEach(link => {
+            		link.addEventListener('click', function(event) {
+                		event.preventDefault();
+
+                	buttonAudio.currentTime = 0;
+                	buttonAudio.play();
+
+                	URL = this.href;
+
+                	setTimeout(() => {
+                    	window.location.href = URL;
+                	}, 300);
+            		});
+        	});
+    	});
+	</script>
+</body>
+</html>
